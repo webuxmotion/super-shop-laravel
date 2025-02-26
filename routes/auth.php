@@ -11,7 +11,33 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
+use Laravel\Socialite\Facades\Socialite;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 Route::middleware('guest')->group(function () {
+
+    Route::get('auth/google', function () {
+        return Socialite::driver('google')->redirect();
+    })->name('google.login');
+    
+    Route::get('auth/google/callback', function () {
+        $googleUser = Socialite::driver('google')->user();
+    
+        // Find or create the user
+        $user = User::updateOrCreate([
+            'email' => $googleUser->getEmail(),
+        ], [
+            'name' => $googleUser->getName(),
+            'google_id' => $googleUser->getId(),
+            'password' => null,
+        ]);
+    
+        Auth::login($user);
+    
+        return redirect('/dashboard'); // Change to your desired route
+    });
+
     Route::get('register', [RegisteredUserController::class, 'create'])
         ->name('register');
 

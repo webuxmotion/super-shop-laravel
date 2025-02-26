@@ -2,6 +2,10 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
+    <div class="p-20">
+        <a href="{{ route('google.login') }}" class="btn btn-danger">Login with Google</a>
+    </div>
+
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
