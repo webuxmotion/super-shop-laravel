@@ -21,6 +21,7 @@
     </head>
     <body>
         @include('partials.top-header')
+        @include('partials.header')
 
         {{$slot}}
     </body>

@@ -26,10 +26,18 @@
 
         li {
             display: flex;
+            align-items: center;
         }
 
         li a {
-            font-size: 1rem;
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: black;
+
+            &:not(a.google-button):hover {
+                color: rgb(101, 101, 101);
+            }
         }
     }
 }
