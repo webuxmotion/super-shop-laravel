@@ -1,13 +1,14 @@
 <div class="top-header section">
     <div class="container h-full">
         <div class="top-header__cells">
-            <div class="top-header__cell"></div>
+            <div class="top-header__cell">
+                <p class="top-header__description">
+                    Підставки для телефонів та інше для власної продуктивності
+                </p>
+            </div>
             <div class="top-header__cell">
                 <nav class="top-header__nav">
                     <ul>
-                        <li>
-                            <a href="/">Home</a>
-                        </li>
                         @auth
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">

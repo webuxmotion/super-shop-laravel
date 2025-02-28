@@ -1,0 +1,47 @@
+.header {
+    border-bottom: 1px solid var(--color-grey-100);
+
+    &__cells {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr; // Three columns layout
+        align-items: center; // Align items vertically
+        min-height: 60px;
+    }
+
+    &__cell:nth-child(2) {
+        justify-self: center; // Center the second column
+    }
+
+    &__cell:nth-child(3) {
+        justify-self: end; // Align the third column content to the right
+    }
+
+    &__logo {
+        font-size: 1.6rem;
+        font-weight: 800;
+
+        a:hover {
+            color: rgb(59, 59, 59);
+        }
+    }
+
+    &__navigation {
+        ul {
+            display: flex;
+            gap: 20px;
+
+            li {
+                a {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    &__icons-menu {
+        ul {
+            display: flex;
+            gap: 20px;
+        }
+    }
+}

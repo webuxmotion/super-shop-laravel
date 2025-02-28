@@ -20,6 +20,8 @@
         @endif
     </head>
     <body>
+        <x-flash-message />
+        
         @include('partials.top-header')
         @include('partials.header')
 

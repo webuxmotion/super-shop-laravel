@@ -9,6 +9,11 @@
         </p>
     </header>
 
+    @if (session('status') === 'password-set')
+        <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 5000)"
+            class="text-sm text-green-600 dark:text-green-400">{{ __('Password successfully set.') }}</p>
+    @endif
+
     <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-6">
         @csrf
         @method('put')

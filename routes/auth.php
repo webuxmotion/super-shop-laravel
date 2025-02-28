@@ -23,19 +23,22 @@ Route::middleware('guest')->group(function () {
     
     Route::get('auth/google/callback', function () {
         $googleUser = Socialite::driver('google')->user();
-    
-        // Find or create the user
-        $user = User::updateOrCreate([
-            'email' => $googleUser->getEmail(),
-        ], [
-            'name' => $googleUser->getName(),
-            'google_id' => $googleUser->getId(),
-            'password' => null,
-        ]);
+
+        $user = User::where('email', $googleUser->getEmail())->first();
+
+        if ($user) {
+
+        } else {
+            $user = User::create([
+                'name' => $googleUser->getName(),
+                'email' => $googleUser->getEmail(),
+                'google_id' => $googleUser->getId(),
+            ]);
+        }
     
         Auth::login($user);
     
-        return redirect('/dashboard'); // Change to your desired route
+        return redirect('/')->with('message', 'Ви успішно залогінились на сайті!'); // Change to your desired route
     });
 
     Route::get('register', [RegisteredUserController::class, 'create'])
@@ -79,6 +82,7 @@ Route::middleware('auth')->group(function () {
     Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
 
     Route::put('password', [PasswordController::class, 'update'])->name('password.update');
+    Route::post('password', [PasswordController::class, 'set'])->name('password.set');
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
