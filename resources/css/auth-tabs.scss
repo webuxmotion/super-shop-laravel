@@ -1,0 +1,24 @@
+.auth-tabs {
+    width: fit-content; /* Adjust width to content */
+    margin: 0 auto; /* Center horizontally */
+    padding-top: 30px;
+
+    ul {
+        display: flex;
+
+        li {
+            a {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: rgb(153, 153, 153);
+                padding: 10px 30px;
+                border-bottom: 2px solid rgb(231, 231, 231);
+
+                &.is-active {
+                    color: black;
+                    border-bottom-color: black;
+                }
+            }
+        }
+    }
+}
