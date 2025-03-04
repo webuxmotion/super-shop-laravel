@@ -7,19 +7,8 @@
                 </div>
             </div>
             <div class="header__cell">
-                <nav class="header__navigation">
-                    <ul>
-                        <li>
-                            <a href="">Підставки</a>
-                        </li>
-                        <li>
-                            <a href="">Годинники</a>
-                        </li>
-                        <li>
-                            <a href="">Світильники</a>
-                        </li>
-                    </ul>
-                </nav>
+                <x-menu tpl="components.menu" />
+                
             </div>
             <div class="header__cell">
                 <nav class="header__icons-menu">

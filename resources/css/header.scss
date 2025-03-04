@@ -31,9 +31,28 @@
             gap: 20px;
 
             li {
-                a {
+                a.header__navigation-main-link {
                     font-weight: 600;
                 }
+            }
+        }
+
+        & > ul > li {
+            position: relative;
+        }
+    }
+
+    &__submenu {
+        ul {
+            display: none;
+            flex-direction: column;
+            gap: 0;
+            position: absolute;
+            top: 100%;
+            left: 0;
+
+            li {
+                white-space: nowrap;
             }
         }
     }
@@ -42,6 +61,16 @@
         ul {
             display: flex;
             gap: 20px;
+        }
+    }
+
+    &__submenu-title:hover {
+        
+        .header__submenu {
+
+            ul {
+                display: flex;
+            }
         }
     }
 }
