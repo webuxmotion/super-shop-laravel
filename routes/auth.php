@@ -38,7 +38,7 @@ Route::middleware('guest')->group(function () {
     
         Auth::login($user);
     
-        return redirect('/')->with('message', 'Ви успішно залогінились на сайті!'); // Change to your desired route
+        return redirect('/')->with('message', 'Ви успішно залогінились на сайті!');
     });
 
     Route::get('register', [RegisteredUserController::class, 'create'])
